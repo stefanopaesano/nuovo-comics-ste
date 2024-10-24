@@ -3,3 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.fumetti{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 50px;
+}
+
+img{
+    width: 100%;
+}

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,18 @@ use App\Http\Controllers\Admin\BookController;
 
 // Route::METODO(PERCORSO CON CUI ARRIVARE ALLA PAGINA, FUNZIONE DI CALLBACK CHE MI CREA LA RISPOSTA DA DARE ALL UTENTE)
 
-Route::get('/', [MainController::class, 'index'])->name('home');   // <--- Che vantaggi ho nominando le rotte?
+Route::get('/', function(){
+    $comics = config('comics');
+
+    return view ('welcome',[
+        'comics' => $comics,
+    ]);
+   
+});
+
+// return view ('welcome',[
+//     'comics' => $comics,
+// ]);
 
 Route::get('/chi-siamo', [MainController::class, 'about'])->name('about');
 
@@ -34,3 +46,5 @@ Route::get('/chi-siamo', [MainController::class, 'about'])->name('about');
     - GET       /books/{book}/edit      -> books.edit
 */
 Route::resource('books', BookController::class);
+
+Route::get('/comics', [ComicController::class, 'index']);
