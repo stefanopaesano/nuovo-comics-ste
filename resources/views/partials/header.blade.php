@@ -1,4 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+</head>
+@php
+    $routes = [
+    [
+        'method' => 'GET',
+        'path' => '/',
+        'controller' => 'Closure',
+        'action' => 'return view(\'welcome\', [\'comics\' => config(\'comics\')]);'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/chi-siamo',
+        'controller' => 'MainController',
+        'action' => 'about',
+        'name' => 'chi-siamo'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/comics',
+        'controller' => 'ComicController',
+        'action' => 'index'
+],
+    [
+        'method' => 'GET',
+        'path' => '/exit',
+        'controller' => 'exitController',
+        'action' => 'about'
+    ]
+];
+
+@endphp
+
+
+
+
+
+
 <header>
+   
     <div class="container">
         <div class="row">
             <div class="col">
@@ -14,7 +60,13 @@
                                    
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                                    <a class="nav-link" href="{{ route('chi-siamo') }}">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('home') }}">home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('exit') }}">  over comics</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

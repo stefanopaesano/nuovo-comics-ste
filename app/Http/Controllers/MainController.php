@@ -33,10 +33,7 @@ class MainController extends Controller
         */
         // dd(compact('firstName', 'lastName'));
 
-        return view('welcome', [
-            'firstName' => $firstName,
-            'lastName' => $lastName,
-        ]);
+      
         // return view('welcome', compact('firstName', 'lastName'));
     }
 

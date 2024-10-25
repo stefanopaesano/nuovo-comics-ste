@@ -11,6 +11,6 @@ class ComicController extends Controller
         // Carica i dati dal file di configurazione
         $comics = config('comics');
 
-        return view('comics.index', compact('comics'));
+        return view('welcome', compact('comics'));
     }
 }
